@@ -1,0 +1,25 @@
+# prettier-ignore
+seed: 0
+src_lang: 'old'
+tgt_lang: 'new'
+
+preprocess_params:
+  threshold_unk: 2       # tokens appearing less than this threshold will be set to <unk>
+  threshold_tokens: null # number of tokens to retain
+
+hyper_params:
+  lr: 0.0003       # learning rate
+  batch_size: 64   # maximum number of sentences in a batch
+  max_tokens: null # maximum number of tokens in a batch
+  max_epoch: 100   # force stop training at specified epoch
+  max_len: 25      # maximum length of generated sequence
+  clip_norm: 4     # clip threshold of gradients
+  patience: 10     # number of epochs without improvement on validation set before early stopping
+
+model_params:
+  embed_dim: 256
+  nhead: 4
+  num_encoder_layers: 6
+  num_decoder_layers: 6
+  ffn_embed_dim: 1024
+  dropout: 0.3

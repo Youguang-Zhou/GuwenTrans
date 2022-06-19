@@ -1,0 +1,6 @@
+nltk
+numpy
+pyyaml
+scikit-learn
+torch
+tqdm
