@@ -2,7 +2,6 @@ import argparse
 import logging
 import os
 import pickle
-import re
 import shutil
 from glob import glob
 

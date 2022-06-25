@@ -75,7 +75,8 @@ def main(args):
     valid_dataset = load_data(split='valid')
 
     # build model and optimization criterion
-    model = Transformer(src_dict, tgt_dict, **model_params)
+    assert src_dict.pad_id == tgt_dict.pad_id
+    model = Transformer(len(src_dict), len(tgt_dict), src_dict.pad_id, **model_params)
     model.to(utils.device)
     criterion = nn.CrossEntropyLoss(ignore_index=src_dict.pad_id, reduction='sum')
     logging.info(f'Built a model with {sum(p.numel() for p in model.parameters())} parameters')

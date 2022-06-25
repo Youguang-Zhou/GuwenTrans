@@ -1,10 +1,12 @@
 import logging
 import os
+import subprocess
 from logging import FileHandler, StreamHandler
+from pathlib import Path
 
 import torch
-from torch.serialization import default_restore_location
 
+root_path = Path(subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).rstrip().decode('utf-8'))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 

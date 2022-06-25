@@ -1,11 +1,32 @@
 import re
 from collections import Counter
 
+import jieba
 import torch
+from jiayan import CharHMMTokenizer, load_lm
+
+from .utils import root_path
+
+
+# 文言文分词
+class OldTokenizer:
+    def __init__(self):
+        super().__init__()
+        path = root_path / 'src' / 'jiayan.klm'
+        self.tokenizer = CharHMMTokenizer(load_lm(str(path)))
+
+    def tokenize(self, string):
+        return list(self.tokenizer.tokenize(re.sub('\s+', '', string)))
+
+
+# 白话文分词
+class NewTokenizer:
+    def tokenize(self, string):
+        return list(jieba.cut(re.sub('\s+', '', string)))
 
 
 class Dictionary:
-    def __init__(self, sos='<s>', eos='</s>', pad='<pad>', unk='<unk>'):
+    def __init__(self, lang, sos='<s>', eos='</s>', pad='<pad>', unk='<unk>'):
         self.sos, self.eos, self.pad, self.unk = sos, eos, pad, unk
         self.tokens = []
         self.token2id = {}
@@ -14,6 +35,7 @@ class Dictionary:
         self.eos_id = self._add_token(eos, n=0)
         self.pad_id = self._add_token(pad, n=0)
         self.unk_id = self._add_token(unk, n=0)
+        self.tokenizer = OldTokenizer() if lang == 'old' else NewTokenizer()
 
     def __len__(self):
         return len(self.tokens)
@@ -28,12 +50,13 @@ class Dictionary:
             threshold_unk:    token出现次数少于这个数字的设置为<unk>
             threshold_tokens: 需要保留的token数量
         '''
-        dictionary = cls()
+        lang = fname.split('.')[-1]
+        dictionary = cls(lang)
         # read tokens from file
         tokens = []
         with open(fname, 'r') as f:
             for line in f:
-                for token in cls._tokenize(line):
+                for token in dictionary._tokenize(line):
                     tokens.append(token)
         # apply thresholds
         num_retain_tokens = len(tokens) if threshold_tokens == None else threshold_tokens
@@ -79,8 +102,9 @@ class Dictionary:
 
     @classmethod
     def load(cls, fname):
+        lang = fname.split('.')[-1]
         with open(fname, 'r') as f:
-            dictionary = cls()
+            dictionary = cls(lang)
             for line in f.readlines():
                 token, count = line.split(' ')
                 dictionary._add_token(token, int(count))
@@ -98,6 +122,5 @@ class Dictionary:
             self.token2count[token] = n
             return id
 
-    @staticmethod
-    def _tokenize(string):
-        return list(re.sub('\s+', '', string))
+    def _tokenize(self, string):
+        return self.tokenizer.tokenize(string)

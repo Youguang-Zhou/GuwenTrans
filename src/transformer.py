@@ -7,8 +7,9 @@ import torch.nn as nn
 class Transformer(nn.Module):
 
     def __init__(self,
-                 src_dict,
-                 tgt_dict,
+                 src_vocab_size,
+                 tgt_vocab_size,
+                 pad_id,
                  embed_dim=512,
                  nhead=8,
                  num_encoder_layers=6,
@@ -18,23 +19,25 @@ class Transformer(nn.Module):
                  max_positions=1000):
         super().__init__()
 
-        assert src_dict.pad_id == tgt_dict.pad_id
-
-        self.args = {'src_dict': src_dict, 'tgt_dict': tgt_dict}
+        self.args = {'src_vocab_size': src_vocab_size,
+                     'tgt_vocab_size': tgt_vocab_size,
+                     'pad_id': pad_id
+                     }
         self.kwargs = {'embed_dim': embed_dim,
                        'nhead': nhead,
                        'num_encoder_layers': num_encoder_layers,
                        'num_decoder_layers': num_decoder_layers,
                        'ffn_embed_dim': ffn_embed_dim,
                        'dropout': dropout,
-                       'max_positions': max_positions}
+                       'max_positions': max_positions
+                       }
 
-        self.pad_id = src_dict.pad_id
+        self.pad_id = pad_id
         self.embed_scale = math.sqrt(embed_dim)
         self.pos_encoder = PositionalEncoding(embed_dim, max_positions+self.pad_id+1, dropout)
 
-        self.src_embed_layer = nn.Embedding(len(src_dict), embed_dim, self.pad_id)
-        self.tgt_embed_layer = nn.Embedding(len(tgt_dict), embed_dim, self.pad_id)
+        self.src_embed_layer = nn.Embedding(src_vocab_size, embed_dim, self.pad_id)
+        self.tgt_embed_layer = nn.Embedding(tgt_vocab_size, embed_dim, self.pad_id)
 
         self.transformer_layer = nn.Transformer(
             d_model=embed_dim,
@@ -46,7 +49,7 @@ class Transformer(nn.Module):
             batch_first=True
         )
 
-        self.project_layer = nn.Linear(embed_dim, len(tgt_dict))
+        self.project_layer = nn.Linear(embed_dim, tgt_vocab_size)
 
         self.register_buffer('self_attn_mask', nn.Transformer.generate_square_subsequent_mask(max_positions))
 
