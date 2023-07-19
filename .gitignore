@@ -1,0 +1,11 @@
+# Python cache
+__pycache__/
+
+# MacOS misc
+.DS_Store
+
+# original data
+双语数据/
+
+# results folder
+results*/

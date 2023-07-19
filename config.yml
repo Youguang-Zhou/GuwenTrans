@@ -1,0 +1,25 @@
+seed: 0
+
+save_interval: 0
+
+# Training
+batch_size: 32             # maximum number of samples in a batch
+max_epoch: 100             # maximum training epoch
+
+# Optimizer
+lr: 0.001                  # learning rate
+enable_lr_decay: true      # whether to decay the learning rate
+
+# Generation
+max_new_tokens: 500        # number of generated tokens
+temperature: 0.8           # 1.0 = no change, < 1.0 = less random, > 1.0 = more random
+top_k: 200                 # retain only the top_k most likely tokens, clamp others to have 0 probability
+
+# Model
+model_params:
+  vocab_size: 8000
+  hidden_size: 32
+  num_attention_heads: 2
+  num_hidden_layers: 1
+  dropout: 0.1
+  max_sequence_length: 512

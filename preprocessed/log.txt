@@ -1,0 +1,10 @@
+[2023-07-18 21:45:49] 🌟 Preprocessing
+[2023-07-18 21:46:31] total sentence pairs: 84443
+[2023-07-18 21:46:31] vocab size: 8000
+[2023-07-18 21:46:31] train data has 75998 sentences
+[2023-07-18 21:46:31] 	max_src_len: 487
+[2023-07-18 21:46:31] 	max_tgt_len: 490
+[2023-07-18 21:46:31] valid data has 8445 sentences
+[2023-07-18 21:46:31] 	max_src_len: 480
+[2023-07-18 21:46:31] 	max_tgt_len: 460
+[2023-07-18 21:46:31] Note: sentencepiece added token ▁ at the beginning of sentence
