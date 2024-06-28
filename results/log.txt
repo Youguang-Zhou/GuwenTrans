@@ -1,0 +1,112 @@
+[2024-06-27 13:50:09] 🌟 Training
+[2024-06-27 13:50:09] Load configuration file config.yml:
+
+seed: 0
+save_interval: 0
+vocab_size: 16384
+total_batch_size: 65536
+batch_size: 16
+max_epoch: 30
+optimizer_args:
+  lr: 0.0003
+  betas:
+  - 0.9
+  - 0.999
+  eps: 1.0e-08
+  weight_decay: 0.01
+scheduler_args:
+  T_0: 30
+  eta_min: 3.0e-05
+generation_args:
+  temperature: 1.0
+  top_p: 1.0
+model_args:
+  d_model: 512
+  n_heads: 8
+  n_layers: 6
+  dropout: 0.1
+  max_sequence_length: 1024
+
+[2024-06-27 13:50:11] Built a model with 69,307,392 parameters (device: cuda:0)
+[2024-06-27 13:50:14] Gradient accumulation step: 1
+[2024-06-27 14:10:18] Epoch 1 | train_loss 6.5568 | lr 0.00029705 | pad_percent 49.08% | grad_norm 0.6090 | duration 1202.3740s | token/sec 111300
+[2024-06-27 14:10:53] Epoch 1 | valid_loss 6.1089 <------------------------------ best validation loss
+[2024-06-27 14:30:55] Epoch 2 | train_loss 5.4915 | lr 0.00029339 | pad_percent 61.67% | grad_norm 0.7577 | duration 1199.9879s | token/sec 111521
+[2024-06-27 14:31:30] Epoch 2 | valid_loss 5.5169 <------------------------------ best validation loss
+[2024-06-27 14:51:34] Epoch 3 | train_loss 4.8933 | lr 0.00028833 | pad_percent 57.38% | grad_norm 0.8297 | duration 1197.9546s | token/sec 111710
+[2024-06-27 14:52:09] Epoch 3 | valid_loss 5.0927 <------------------------------ best validation loss
+[2024-06-27 15:12:17] Epoch 4 | train_loss 4.4737 | lr 0.00028192 | pad_percent 32.38% | grad_norm 0.8891 | duration 1201.6658s | token/sec 111365
+[2024-06-27 15:12:52] Epoch 4 | valid_loss 4.7772 <------------------------------ best validation loss
+[2024-06-27 15:32:57] Epoch 5 | train_loss 4.1125 | lr 0.00027422 | pad_percent 42.22% | grad_norm 0.9502 | duration 1198.7235s | token/sec 111639
+[2024-06-27 15:33:32] Epoch 5 | valid_loss 4.4248 <------------------------------ best validation loss
+[2024-06-27 15:53:34] Epoch 6 | train_loss 3.8053 | lr 0.00026533 | pad_percent 38.20% | grad_norm 0.9669 | duration 1195.6727s | token/sec 111924
+[2024-06-27 15:54:09] Epoch 6 | valid_loss 4.1468 <------------------------------ best validation loss
+[2024-06-27 16:14:19] Epoch 7 | train_loss 3.5166 | lr 0.00025534 | pad_percent 47.85% | grad_norm 0.9214 | duration 1203.3622s | token/sec 111208
+[2024-06-27 16:14:54] Epoch 7 | valid_loss 3.8650 <------------------------------ best validation loss
+[2024-06-27 16:35:04] Epoch 8 | train_loss 3.2612 | lr 0.00024436 | pad_percent 35.07% | grad_norm 0.9063 | duration 1202.7074s | token/sec 111269
+[2024-06-27 16:35:38] Epoch 8 | valid_loss 3.6038 <------------------------------ best validation loss
+[2024-06-27 16:55:41] Epoch 9 | train_loss 3.0697 | lr 0.00023251 | pad_percent 46.62% | grad_norm 0.8858 | duration 1196.0385s | token/sec 111889
+[2024-06-27 16:56:16] Epoch 9 | valid_loss 3.4786 <------------------------------ best validation loss
+[2024-06-27 17:16:25] Epoch 10 | train_loss 2.9265 | lr 0.00021992 | pad_percent 59.70% | grad_norm 0.8553 | duration 1202.4047s | token/sec 111297
+[2024-06-27 17:16:59] Epoch 10 | valid_loss 3.3639 <------------------------------ best validation loss
+[2024-06-27 17:37:06] Epoch 11 | train_loss 2.7995 | lr 0.00020672 | pad_percent 48.64% | grad_norm 0.8209 | duration 1199.8905s | token/sec 111530
+[2024-06-27 17:37:41] Epoch 11 | valid_loss 3.2768 <------------------------------ best validation loss
+[2024-06-27 17:57:47] Epoch 12 | train_loss 2.6995 | lr 0.00019307 | pad_percent 37.28% | grad_norm 0.7906 | duration 1199.7708s | token/sec 111541
+[2024-06-27 17:58:22] Epoch 12 | valid_loss 3.2113 <------------------------------ best validation loss
+[2024-06-27 18:18:31] Epoch 13 | train_loss 2.6215 | lr 0.00017912 | pad_percent 28.16% | grad_norm 0.7714 | duration 1202.9920s | token/sec 111243
+[2024-06-27 18:19:06] Epoch 13 | valid_loss 3.1763 <------------------------------ best validation loss
+[2024-06-27 18:39:12] Epoch 14 | train_loss 2.5523 | lr 0.00016501 | pad_percent 67.93% | grad_norm 0.7555 | duration 1198.9911s | token/sec 111614
+[2024-06-27 18:39:46] Epoch 14 | valid_loss 3.1480 <------------------------------ best validation loss
+[2024-06-27 18:59:55] Epoch 15 | train_loss 2.4983 | lr 0.00015090 | pad_percent 48.36% | grad_norm 0.7478 | duration 1202.2162s | token/sec 111314
+[2024-06-27 19:00:30] Epoch 15 | valid_loss 3.1182 <------------------------------ best validation loss
+[2024-06-27 19:20:37] Epoch 16 | train_loss 2.4504 | lr 0.00013694 | pad_percent 59.47% | grad_norm 0.7446 | duration 1200.0302s | token/sec 111517
+[2024-06-27 19:21:11] Epoch 16 | valid_loss 3.1107 <------------------------------ best validation loss
+[2024-06-27 19:41:16] Epoch 17 | train_loss 2.4077 | lr 0.00012329 | pad_percent 46.89% | grad_norm 0.7404 | duration 1198.6953s | token/sec 111641
+[2024-06-27 19:41:51] Epoch 17 | valid_loss 3.0902 <------------------------------ best validation loss
+[2024-06-27 20:01:56] Epoch 18 | train_loss 2.3692 | lr 0.00011010 | pad_percent 24.47% | grad_norm 0.7420 | duration 1198.5548s | token/sec 111654
+[2024-06-27 20:02:31] Epoch 18 | valid_loss 3.0956
+[2024-06-27 20:22:28] Epoch 19 | train_loss 2.3339 | lr 0.00009751 | pad_percent 37.69% | grad_norm 0.7406 | duration 1193.3752s | token/sec 112139
+[2024-06-27 20:23:02] Epoch 19 | valid_loss 3.0792 <------------------------------ best validation loss
+[2024-06-27 20:43:06] Epoch 20 | train_loss 2.3043 | lr 0.00008565 | pad_percent 43.82% | grad_norm 0.7432 | duration 1196.9903s | token/sec 111800
+[2024-06-27 20:43:41] Epoch 20 | valid_loss 3.0778 <------------------------------ best validation loss
+[2024-06-27 21:03:51] Epoch 21 | train_loss 2.2784 | lr 0.00007467 | pad_percent 34.03% | grad_norm 0.7452 | duration 1203.5113s | token/sec 111195
+[2024-06-27 21:04:25] Epoch 21 | valid_loss 3.0778 <------------------------------ best validation loss
+[2024-06-27 21:24:34] Epoch 22 | train_loss 2.2504 | lr 0.00006468 | pad_percent 44.89% | grad_norm 0.7478 | duration 1201.8180s | token/sec 111351
+[2024-06-27 21:25:08] Epoch 22 | valid_loss 3.0750 <------------------------------ best validation loss
+[2024-06-27 21:45:15] Epoch 23 | train_loss 2.2301 | lr 0.00005579 | pad_percent 59.08% | grad_norm 0.7495 | duration 1199.8344s | token/sec 111535
+[2024-06-27 21:45:49] Epoch 23 | valid_loss 3.0820
+[2024-06-27 22:05:56] Epoch 24 | train_loss 2.2084 | lr 0.00004809 | pad_percent 41.60% | grad_norm 0.7519 | duration 1203.4503s | token/sec 111200
+[2024-06-27 22:06:31] Epoch 24 | valid_loss 3.0720 <------------------------------ best validation loss
+[2024-06-27 22:26:35] Epoch 25 | train_loss 2.1923 | lr 0.00004167 | pad_percent 53.67% | grad_norm 0.7552 | duration 1197.2860s | token/sec 111773
+[2024-06-27 22:27:09] Epoch 25 | valid_loss 3.0687 <------------------------------ best validation loss
+[2024-06-27 22:47:18] Epoch 26 | train_loss 2.1774 | lr 0.00003661 | pad_percent 54.24% | grad_norm 0.7572 | duration 1202.4031s | token/sec 111297
+[2024-06-27 22:47:53] Epoch 26 | valid_loss 3.0743
+[2024-06-27 23:08:00] Epoch 27 | train_loss 2.1663 | lr 0.00003295 | pad_percent 31.98% | grad_norm 0.7592 | duration 1203.8801s | token/sec 111160
+[2024-06-27 23:08:35] Epoch 27 | valid_loss 3.0741
+[2024-06-27 23:28:39] Epoch 28 | train_loss 2.1569 | lr 0.00003074 | pad_percent 41.11% | grad_norm 0.7625 | duration 1200.9128s | token/sec 111435
+[2024-06-27 23:29:14] Epoch 28 | valid_loss 3.0817
+[2024-06-27 23:49:16] Epoch 29 | train_loss 2.1500 | lr 0.00003000 | pad_percent 60.82% | grad_norm 0.7639 | duration 1198.7768s | token/sec 111634
+[2024-06-27 23:49:51] Epoch 29 | valid_loss 3.0771
+[2024-06-28 00:09:57] Epoch 30 | train_loss 2.3908 | lr 0.00029926 | pad_percent 40.66% | grad_norm 0.8259 | duration 1202.8971s | token/sec 111251
+[2024-06-28 00:10:32] Epoch 30 | valid_loss 3.1182
+[2024-06-28 00:10:35] Training finished!
+[2024-06-28 12:08:12] 🌟 Generation (device: mps)
+[2024-06-28 12:08:12] Load generation configuration:
+
+temperature: 1.0
+top_p: 0.3
+
+[2024-06-28 12:08:14] Input:
+我见青山多妩媚，青山见我应如是。
+[2024-06-28 12:08:14] Output:
+我看到青山很妩媚，青山看我应该如此。
+[2024-06-28 12:09:01] 🌟 Generation (device: mps)
+[2024-06-28 12:09:01] Load generation configuration:
+
+temperature: 1.0
+top_p: 0.3
+
+[2024-06-28 12:09:55] Input:
+话说天下大势，分久必合，合久必分。周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉。汉朝自高祖斩白蛇而起义，一统天下，后来光武中兴，传至献帝，遂分为三国。推其致乱之由，殆始于桓、灵二帝。桓帝禁锢善类，崇信宦官。及桓帝崩，灵帝即位，大将军窦武、太傅陈蕃共相辅佐。时有宦官曹节等弄权，窦武、陈蕃谋诛之，机事不密，反为所害，中涓自此愈横。
+[2024-06-28 12:09:55] Output:
+话说天下大势，分年一定结合，时间久了一定分成两半。周朝末期七国分成两半，合并入秦。等到秦朝灭亡之后，楚汉分裂争夺，又都归于汉朝。汉朝自高祖斩白蛇起义，统一全国，后来光武中兴，传到汉献帝，于是分为三国。推究导致祸乱的根源，大概开始于桓帝、灵帝二帝。桓帝禁锢善类，尊崇信任宦官。桓帝桓帝驾崩，灵帝即位，大将军窦武、太傅陈蕃共同辅佐。当时宦官曹节等人玩弄权势，窦武、陈蕃阴谋诛杀他们，曹节等人的阴谋不严密，反而被他们杀害，宦官们从此更加骄横。

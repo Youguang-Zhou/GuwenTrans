@@ -1,0 +1,36 @@
+seed: 0
+
+save_interval: 0
+
+# Tokenizer
+vocab_size: 16384           # 2^14
+
+# Training
+total_batch_size: 65536     # batch_size * max_sequence_length * num_device * grad_accum_steps, in number of tokens
+batch_size: 16              # maximum number of samples in a batch
+max_epoch: 30               # maximum training epoch
+
+# Optimizer
+optimizer_args:             # AdamW Optimizer
+  lr: 3.0e-4
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 0.01
+
+# Scheduler
+scheduler_args:             # CosineAnnealingWarmRestarts Scheduler
+  T_0: 30                   # number of iterations for the first restart
+  eta_min: 3.0e-5           # minimum learning rate
+
+# Generation
+generation_args:
+  temperature: 1.0          # 1.0 = no change, < 1.0 = less random, > 1.0 = more random
+  top_p: 0.3                # retain only the top_p most likely tokens, clamp others to have 0 probability
+
+# Model
+model_args:
+  d_model: 512
+  n_heads: 8
+  n_layers: 6
+  dropout: 0.1
+  max_sequence_length: 1024

@@ -1,0 +1,12 @@
+[2024-06-27 12:51:37] 🌟 Preprocessing
+[2024-06-27 12:54:31] Vocab size: 16,384
+[2024-06-27 12:54:31] Total sentence pairs: 145,203
+[2024-06-27 12:54:31] Total src_tokens: 16,350,224
+[2024-06-27 12:54:31] Total tgt_tokens: 20,993,751
+[2024-06-27 12:54:31] Token utilization: 71.36%
+[2024-06-27 12:54:31] Train data has 130,682 sentences
+[2024-06-27 12:54:31] 	max_src_len: 1023
+[2024-06-27 12:54:31] 	max_tgt_len: 1023
+[2024-06-27 12:54:31] Valid data has 14,521 sentences
+[2024-06-27 12:54:31] 	max_src_len: 1023
+[2024-06-27 12:54:31] 	max_tgt_len: 1023

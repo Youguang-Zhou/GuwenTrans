@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+
+# MacOS misc
+.DS_Store
+
+# data folder
+data/双语数据/
+data/src.txt
+data/tgt.txt
+
+# preprocessing folder
+preprocessed*/*
+
+# results folder
+results*/*
+!results*/tokenizer.*
+!results*/results.svg
+!results*/runs/
+
+# remain all log files
+!*/log.txt
